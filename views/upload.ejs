@@ -1,0 +1,22 @@
+<%- include header %>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file1">
+    <input type="file" name="file2">
+    <input type="file" name="file3">
+    <input type="file" name="file4">
+    <input type="file" name="file5">
+
+    <input type="submit">
+</form>
+
+<div>
+    <p>已上传的照片</p>
+    <hr>
+    <% photos.forEach(function (photoname) { %>
+         <div class="img-wrap">
+             <img src="/upload/<%= photoname %>" alt="">
+             <p class="name"><%= photoname %></p>
+         </div>
+    <% }) %>
+</div>
+<%- include footer %>

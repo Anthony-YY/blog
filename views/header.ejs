@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <header>
+    	<h1>
+            <%= title %>
+            <% if(user){ %>
+                <small class="user-info">用户：<%= user.name %></small>
+            <% } %>
+        </h1>
+    </header>
+    <span>
+        <form action="/search" method="get">
+            <input type="text" name="keyword" placeholder="SEARCH" class="search">
+        </form>
+    </span>
+	<nav>
+		<span><a href="/" title="主页">home</a></span>
+        <span><a href="/archive" title="archive">archive</a></span>
+        <span><a href="/tags" title="标签">tags</a></span>
+        <span><a href="/links" title="友情链接">links</a></span>
+        <% if (user) { %>
+        <pan><a href="/upload" title="上传">upload</a></pan>
+        <span><a href="/post" title="发表">post</a></span>
+        <span><a href="/logout" title="登出">logout</a></span>
+        <% } else { %>
+		<span><a href="/login" title="登录">login</a></span>
+		<span><a href="/reg" title="注册">register</a></span>
+        <% } %>
+	</nav>
+
+    <article>
+
+    <% if(success) { %>
+
+    <div><%= success %></div>
+
+    <% } %>
+
+    <% if(error) { %>
+
+    <div><%= error %></div>
+
+    <% } %>
